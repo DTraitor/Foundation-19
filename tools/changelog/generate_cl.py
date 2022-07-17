@@ -58,8 +58,6 @@ pr_author = pr.user.login
 write_cl = {}
 if pr.body:
     print(pr.body)
-    print(pr.bodyHTML)
-    print(pr.bodyText)
     try:
         cl = CL_BODY.search(pr_body)
         cl_list = CL_SPLIT.findall(cl.group(2))
