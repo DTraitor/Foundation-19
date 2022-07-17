@@ -182,7 +182,7 @@
 			var/mob/living/carbon/human/H = target
 			H.forcesay(GLOB.hit_appends)
 
-	return 1
+	return TRUE
 
 /obj/item/melee/baton/emp_act(severity)
 	if(bcell)
