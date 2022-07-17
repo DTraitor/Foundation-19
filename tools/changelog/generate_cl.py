@@ -57,6 +57,9 @@ pr_author = pr.user.login
 
 write_cl = {}
 if pr.body:
+    print(pr.body)
+    print(pr.bodyHTML)
+    print(pr.bodyText)
     try:
         cl = CL_BODY.search(pr_body)
         cl_list = CL_SPLIT.findall(cl.group(2))
@@ -94,6 +97,7 @@ if write_cl["changes"]:
         yaml.dump(write_cl, cl_contents)
         cl_contents.seek(0)
 
+        print(cl_contents.read())
         # Push the newly generated changelog to the master branch so that it can be compiled
         repo.create_file(
             f"html/changelogs/AutoChangeLog-pr-{pr_number}.yml",
